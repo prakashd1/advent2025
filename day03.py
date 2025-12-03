@@ -25,8 +25,7 @@ def find_joltage(line, k):
         bdi = d[:end].index(bd)
         r.append(bd)
         d = d[bdi+1:]
-
-    print(f"for {line} joltage is {"".join(r)}")
+    #print(f"for {line} joltage is {"".join(r)}")
     return "".join(r)
 
 c = parse()
