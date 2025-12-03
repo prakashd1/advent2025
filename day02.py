@@ -1,11 +1,12 @@
 from collections import defaultdict, deque
+from functools import lru_cache
+
+
 def parse():
     with open("./data/day02.txt", "r") as file:
         ip =  file.read().strip()
         c = ip.split(",")
-        x = []
-        for p in c:
-            x.append((int(p.split("-")[0]), int(p.split("-")[1])))
+        x = [(int(p.split("-")[0]), int(p.split("-")[1])) for p in c]
         return x
 
 def part12(c):
@@ -30,8 +31,7 @@ def findx(x):
 
 
 def is_invalid_part2(i):
-    s = str(i)
-    return is_repeat(s)
+    return is_repeat(str(i))
 
 def is_invalid_part1(i):
     s = str(i)
@@ -55,7 +55,7 @@ def is_repeat_twice(s):
         if a[i] != b[i]:
             return False
     return True
-
+@lru_cache
 def is_repeat(s):
     if len(s) == 1:
         return False
