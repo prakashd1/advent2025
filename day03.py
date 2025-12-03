@@ -17,7 +17,7 @@ def part12(c):
 def find_joltage(line, k):
     if len(line) < k:
         return 0
-    d, r = re.findall(r'\d', line.strip()), []
+    d, r = re.findall(r'\d', line), []
     for i in range(k):
         dr = k - i
         end = len(d) - dr + 1
